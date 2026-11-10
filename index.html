@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokédex Clássica | Bruno Moreno Nobre</title>
+
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Nosso CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="topo">
+    <h1>Pokédex Clássica</h1>
+    <p>Os Pokémon que marcaram os anos 90 e 2000 — dados em tempo real da PokéAPI</p>
+    <input type="text" id="busca" placeholder="Buscar Pokémon pelo nome...">
+  </header>
+
+  <main>
+    <p id="carregando" class="mensagem">Carregando Pokémon...</p>
+
+    <!-- Área dos cards: fica VAZIA, o JavaScript preenche -->
+    <section id="cards" class="grade-cards"></section>
+  </main>
+
+  <footer class="rodape">
+    Bruno Moreno Nobre - RA 136499 | UniFECAF
+  </footer>
+
+  <!-- Nosso JavaScript (no final para o HTML carregar antes) -->
+  <script src="js/script.js"></script>
+</body>
+</html>

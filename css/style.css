@@ -1,0 +1,236 @@
+/* ===== 1. RESET E BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  background: #f2f2f2;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+/* ===== 2. CABEÇALHO (estilo Pokédex) ===== */
+.topo {
+  background: linear-gradient(135deg, #e3350d, #b8290a);
+  color: #fff;
+  text-align: center;
+  padding: 40px 20px 50px;
+  border-bottom: 8px solid #222;
+  position: relative;
+}
+
+/* Linha + botão central da Pokébola */
+.topo::after {
+  content: '';
+  position: absolute;
+  bottom: -26px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 44px;
+  height: 44px;
+  background: #fff;
+  border: 8px solid #222;
+  border-radius: 50%;
+}
+
+.topo h1 {
+  font-family: 'Press Start 2P', cursive;
+  font-size: clamp(1.2rem, 4vw, 2.2rem);
+  color: #ffcb05;
+  text-shadow: 3px 3px 0 #3b4cca, 5px 5px 0 #222;
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+.topo p {
+  font-size: 1rem;
+  margin-bottom: 25px;
+  opacity: 0.95;
+}
+
+#busca {
+  width: 100%;
+  max-width: 420px;
+  padding: 12px 20px;
+  border: 3px solid #222;
+  border-radius: 30px;
+  font-family: inherit;
+  font-size: 1rem;
+  outline: none;
+  transition: box-shadow 0.2s;
+}
+
+#busca:focus {
+  box-shadow: 0 0 0 4px #ffcb05;
+}
+
+/* ===== 3. MENSAGEM DE CARREGAMENTO ===== */
+.mensagem {
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 40px 0;
+}
+
+/* ===== 4. GRADE RESPONSIVA DE CARDS ===== */
+.grade-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 25px;
+  margin-top: 20px;
+}
+
+/* ===== 5. CARD ===== */
+.card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-top: 6px solid var(--cor, #ccc);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.15);
+}
+
+.numero {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #999;
+}
+
+.card h2 {
+  font-size: 1.3rem;
+  text-transform: capitalize;
+  margin: 5px 0 10px;
+}
+
+.card img {
+  width: 100%;
+  max-width: 160px;
+  aspect-ratio: 1;
+  object-fit: contain;
+  background: radial-gradient(circle, color-mix(in srgb, var(--cor) 30%, white) 0%, transparent 70%);
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+.card:hover img {
+  transform: scale(1.08);
+}
+
+/* ===== 6. CORAÇÃO (favorito) ===== */
+.favorito {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  color: #e3350d;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.favorito:hover {
+  transform: scale(1.2);
+}
+
+.favorito.ativo {
+  animation: pulsar 0.3s;
+}
+
+@keyframes pulsar {
+  50% { transform: scale(1.4); }
+}
+
+/* ===== 7. ETIQUETAS DE TIPO E INFO ===== */
+.tipos {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin: 12px 0 8px;
+  flex-wrap: wrap;
+}
+
+.tipo {
+  background: var(--cor, #999);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.info {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* ===== 8. CORES POR TIPO ===== */
+.tipo-normal   { --cor: #a8a77a; }
+.tipo-fire     { --cor: #ee8130; }
+.tipo-water    { --cor: #6390f0; }
+.tipo-grass    { --cor: #7ac74c; }
+.tipo-electric { --cor: #f7d02c; }
+.tipo-ice      { --cor: #96d9d6; }
+.tipo-fighting { --cor: #c22e28; }
+.tipo-poison   { --cor: #a33ea1; }
+.tipo-ground   { --cor: #e2bf65; }
+.tipo-flying   { --cor: #a98ff3; }
+.tipo-psychic  { --cor: #f95587; }
+.tipo-bug      { --cor: #a6b91a; }
+.tipo-rock     { --cor: #b6a136; }
+.tipo-ghost    { --cor: #735797; }
+.tipo-dragon   { --cor: #6f35fc; }
+.tipo-dark     { --cor: #705746; }
+.tipo-steel    { --cor: #b7b7ce; }
+.tipo-fairy    { --cor: #d685ad; }
+
+/* ===== 9. RODAPÉ ===== */
+.rodape {
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+}
+
+/* ===== 10. RESPONSIVO (celular) ===== */
+@media (max-width: 600px) {
+  .grade-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .card {
+    padding: 15px 10px;
+  }
+
+  .card h2 {
+    font-size: 1rem;
+  }
+
+  .topo p {
+    font-size: 0.9rem;
+  }
+}
